@@ -45,16 +45,6 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         return parent::render($request, $exception);
-
-        $response = array('status' => '400', 'error' => '', 'trace' => '');
-
-        $statusCode = method_exists($exception, 'getStatusCode') ? $exception->getStatusCode() : 500;
-        $response['error']  = $exception->getMessage();
-
-        $response['status'] = $statusCode;
-        // $response['trace']  = $exception->getTrace();
-        
-        return response()->json($response,$statusCode);
     }
 
     /**

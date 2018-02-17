@@ -10,16 +10,30 @@
 		private $width;
 		public $error;
 		
+		/**
+		 * [getAttributes returns an array containing the name of attributes the shape has as string ]
+		 * @return [array] [array of strings]
+		 */
 		public function getAttributes()
 		{
 			return array('height','width');
 		}
 		
-		public function calculateArea($data)
+		/**
+		 * [calculateArea function for calcuation of area]
+		 * @param  [array] $data [array containing the value of the attributes]
+		 * @return [float]       [calculated area]
+		 */
+		public function calculateArea()
 		{
-			return 3.14 * (float)$data['height'] * (float)$data['width'];
+			return 3.14 * (float)$this->height * (float)$this->width;
 		}
 
+		/**
+		 * [validate validates the data sent by you from the front end, set the error variable if not validate the data]
+		 * @param  [object] $data [data sent to calculate area containing attribute values]
+		 * @return [boolean]       [true/ false vbased on the validation rule]
+		 */
 		public function validate($data)
 		{
 			$regex = '/^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/';
@@ -36,6 +50,9 @@
 	            return false;
 	        }
 
+	        $this->height = $data['height'];
+	        $this->width = $data['width'];
+	    
 	        return true;
 		}
 	}

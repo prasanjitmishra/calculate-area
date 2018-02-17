@@ -86,6 +86,9 @@
 						<div class="radio">
 						  <label><input type="radio" name="optradio" value="Ellipse">Ellipse</label>
 						</div>
+						<div class="radio">
+						  <label><input type="radio" name="optradio" value="rightangledtriangle">Right Angled Triangle</label>
+						</div>
 						<button type="button" class="btn next-btn" style="font-weight:bold">
 							Go to step 2
 						</button>

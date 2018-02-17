@@ -51,7 +51,7 @@ class ShapeController extends Controller
 					return response()->json(['status'=>0,'message'=>"error",'data' => $myShape->error]);
 			    }
 
-				return response()->json(['status'=>1,'message'=>'','data' => $myShape->calculateArea($requestData)]);
+				return response()->json(['status'=>1,'message'=>'','data' => $myShape->calculateArea()]);
 			} else {
 				return response()->json(['status'=>0,'message'=>"class not found",'data' => NULL]);
 			}

@@ -3,32 +3,32 @@
 	
 	use App\Shapes\Shape;
 	use Illuminate\Support\Facades\Validator;
-
+	
 	/**
-	 * Square class extending the Parent class
+	 * Rightangledtriangle class extending the Parent class
 	 */
-	class Square extends Shape
+	class Rightangledtriangle extends Shape
 	{
-		private $diameter;
 		public $error;
-		
+		private $height;
+		private $base;
+
 		/**
 		 * [getAttributes returns an array containing the name of attributes the shape has as string ]
 		 * @return [array] [array of strings]
 		 */
 		public function getAttributes()
 		{
-			return array('width');
+			return array('height','base');
 		}
-
+		
 		/**
 		 * [calculateArea function for calcuation of area]
 		 * @return [float]       [calculated area]
 		 */
 		public function calculateArea()
 		{
-	        
-			return (float)$this->width * (float)$this->width;
+			return 0.5 * (float)$this->height * (float)$this->base;
 		}
 
 		/**
@@ -39,9 +39,9 @@
 		public function validate($data)
 		{
 			$regex = '/^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/';
-			
 			$validator = Validator::make($data, [
-                'width'  => array('required', "regex:$regex"),
+                'height' => array("required","regex:$regex"),
+                'base'  => array('required',"regex:$regex")
 	        ]);
 
 	        $this->error = $validator->errors()->all();
@@ -51,7 +51,8 @@
 	            return false;
 	        }
 
-	        $this->width = $data['width'];
+	        $this->height = $data["height"];
+	        $this->base = $data["base"];
 
 	        return true;
 		}
