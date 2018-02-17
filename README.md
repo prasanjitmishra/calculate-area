@@ -11,10 +11,7 @@ How to Set up Project?
 
 How will add more Shapes?
 
-1) add a radio button to resources/views/Shapes/selectShape.blade.php 
-e.g.<div class="radio">
-	<label><input type="radio" name="optradio" value="rightangledtriangle">Right Angled Triangle</label>
-      </div>
+1) add a radio button to resources/views/Shapes/selectShape.blade.php
 
 2) create a class inside 'app/Shapes' named same as the value property of shape you added in step 1 with first letter capital.
  (e.g rightangledtriangle -> Rightangledtriangle.php)
